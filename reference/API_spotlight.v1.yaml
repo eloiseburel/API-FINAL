@@ -20,7 +20,6 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
   /login:
     get:
       summary: Your GET endpoint
@@ -30,6 +29,13 @@ paths:
           description: OK
       operationId: get-login
       description: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Users'
   /items/create:
     post:
       summary: ''
@@ -46,6 +52,13 @@ paths:
         '200':
           description: OK
       description: Modify an item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Items'
     delete:
       summary: ''
       operationId: 'delete-items-:itemId'
@@ -62,6 +75,13 @@ paths:
           description: OK
       operationId: 'get-items-search-:searchOption'
       description: Search an item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Items'
 components:
   schemas:
     Users:
