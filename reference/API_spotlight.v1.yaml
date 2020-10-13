@@ -15,11 +15,8 @@ paths:
         '201':
           description: Created
       description: Create a new user
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
+      security:
+        - API Key - 1: []
   /login:
     get:
       summary: Your GET endpoint
