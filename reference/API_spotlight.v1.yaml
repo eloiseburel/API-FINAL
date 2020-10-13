@@ -17,7 +17,15 @@ paths:
       description: Create a new user
       security:
         - API Key - 1: []
-      parameters: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: password
+        - schema:
+            type: string
+          in: query
+          name: username
   /login:
     get:
       summary: Your GET endpoint
