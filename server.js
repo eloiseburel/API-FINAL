@@ -146,7 +146,7 @@ app.get(
         };
 
         const options = {
-            expiresIn: 'id'
+            expiresIn: '1d'
         }
 
         /* Sign the token with payload, key and options.
@@ -197,7 +197,7 @@ Create a new item
 
 app.post('/items/create', passport.authenticate('jwt', {
     session: false
-}), imageUpload.array('images', 4), (req, res) => {
+}), /*imageUpload.array('images', 4),*/ (req, res) => {
 
     // If one of the parameters is empty, send a bad-request response
     if (!req.body.title) {
@@ -249,7 +249,7 @@ Edit an existing item
  */
 app.put('/items/:itemId', passport.authenticate('jwt', {
     session: false
-}), imageUpload.array('images', 4), (req, res) => {
+}), /*imageUpload.array('images', 4),*/ (req, res) => {
 
     let oldItemBody = itemsDatabase.getItemByItemId(req.params.itemId);
 
